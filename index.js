@@ -60,10 +60,23 @@ app.get('/', function(req, res) {
 
 app.get('/getStudents', function(req, res) {
   // TODO
+  res.status(200).send(students);
 });
 
 app.post('/addStudent', function(req, res) {
   // TODO
+  console.log(req.body);
+
+  var student =
+  {
+    name: req.body.name,
+    id: req.body.id,
+    img: `img/${req.body.gender}.png`
+  };
+
+  students.push(student);
+
+  res.status(200).send(student);
 })
 
 /**
